@@ -7,6 +7,12 @@ class Categoria(models.Model):
     def __str__(self):
         return self.titulo
 
+
+    class Meta:
+        ordering = ['titulo']
+
+
+
 class Anuncio(models.Model):
     titulo = models.CharField((""), max_length=30)
     descricao = models.TextField(null=True, blank=True)
