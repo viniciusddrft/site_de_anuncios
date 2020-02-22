@@ -6,5 +6,5 @@ from .views import categoria
 
 urlpatterns = [
     path('', home, name='home'),
-    path('/<int:categoria_id>', categoria, name='categoria')
+    path('<int:categoria_id>', categoria, name='categoria')
 ]
