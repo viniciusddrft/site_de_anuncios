@@ -5,4 +5,6 @@ __pycache__/
 db.sqlite3
 projeto6/settings.py
 proximaaula.txt
+anuncios/static/anuncios/img/uploads/
+anuncios/static/anuncios/img/
 

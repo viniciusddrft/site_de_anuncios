@@ -1,57 +1,20 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<!DOCTYPE HTML>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-    <title> SITE </title>
-    <link rel="stylesheet" href="{% static 'anuncios/css/semantic.min.css' %}">
-</head>
+{% block conteudo %}
 
-<body>
-
-
-<div class="ui inverted attached menu">
-	<div class="ui container">
-	    <a class="item"> SITE </a>
-	    <div class="right menu">
-	    	<div class="ui right aligned category search item">
-	  			<div class="ui transparent icon input">
-	  			    <input class="prompt" type="text" placeholder="Pesquisar...">
-	  			    <i class="search icon"></i>
-	  			</div>
-	  			  <div class="results"></div>
-	  		</div>
-	    </div>''
-	</div>
-</div>
-
-<div class="ui hidden divider"></div>
-
-<div class="ui container">
-	<div class="ui stackable grid">
-		<div class="four wide column">
-		  	<div class="ui vertical fluid menu">
-			    {% for categoria in categorias %}
-					<a class="item">
-						{{categoria}}
-					</a>
-				{% endfor%}
-
-			</div>
-		</div>
-
-
-
-
-		<div class="twelve wide column">	
+	
 			<div class="ui three column stackable grid">
 				{% for anuncio in anuncios %}	
 				<div class="column">
 					<div class="ui fluid card">
 						<div class="image">
-							{{anuncio.imagem}}
-					    	<img src="{% static 'anuncios/img/uploads/download.jpeg' %}">
+							{% if anuncio.imagem %}
+							<img src="{{anuncio.imagem.url}}">
+							{% else %}
+							<img src="{% static 'anuncios/img/image.png' %}">
+							{% endif %}
 					 	</div>
 					  	<div class="content">
 					   		<a class="header">{{ anuncio }}</a>
@@ -63,13 +26,6 @@
 				</div>
 				{% endfor %}
 			</div>	
-		</div>
 
+{% endblock conteudo %}
 
-
-		
-	</div>
-</div>
-
-</body>
-</html>
