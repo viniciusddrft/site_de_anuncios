@@ -11,9 +11,13 @@
 <body>
 
 
-<div class="ui inverted attached menu">
+<div class="ui large attached menu">
 	<div class="ui container">
-	    <a href="{% url 'home' %}" class="item"> SITE </a>
+	    <a href="{% url 'home' %}" class="ui item">
+			<div class="header">
+				Django Anúncios
+			</div>
+		</a>
 	    <div class="right menu">
 	    	<div class="ui right aligned category search item">
 	  			<div class="ui transparent icon input">
@@ -22,15 +26,17 @@
 	  			</div>
 	  			  <div class="results"></div>
 	  		</div>
-	    </div>''
+	    </div>
 	</div>
 </div>
 
 <div class="ui hidden divider"></div>
 
+
 <div class="ui container">
 	<div class="ui stackable grid">
 		<div class="four wide column">
+		<div class="ui dividing header">Categorias</div>
 		  	<div class="ui vertical fluid menu">
 			    {% for categoria in categorias %}
 					<a href="{% url 'categoria' categoria.id %}" class="item">
