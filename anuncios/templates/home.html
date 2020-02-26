@@ -8,7 +8,7 @@
 			<div class="ui three column stackable grid">
 				{% for anuncio in anuncios %}	
 				<div class="column">
-					<div class="ui fluid card">
+					<a class="ui card" href="{% url 'anuncio' anuncio.id %}">
 						<div class="image">
 							{% if anuncio.imagem %}
 							<img src="{{anuncio.imagem.url}}">
@@ -17,15 +17,27 @@
 							{% endif %}
 					 	</div>
 					  	<div class="content">
-					   		<a href="{% url 'anuncio' anuncio.id %}" class="header">{{ anuncio }}</a>
+					   		<div class="header"> {{anuncio}} </div>
+							<div class="meta">
+								{{ anuncio.categoria }}
+							</div>
 					  	</div>
 					  	<div class="extra content">
 					     	R$ {{ anuncio.preco }}
 					  	</div>
-					</div>
+					</a>
 				</div>
 				{% empty %}
 					<div class="ui info fluid message">Nenhum anúncio encontrado!</div>
+
+					<div class="ui hidden divider"></div>
+					<div class="ui hidden divider"></div>
+					<div class="ui hidden divider"></div>
+					<div class="ui hidden divider"></div>
+					<div class="ui hidden divider"></div>
+					<div class="ui hidden divider"></div>
+					<div class="ui hidden divider"></div>
+					<div class="ui hidden divider"></div>
 				{% endfor %}
 			</div>	
 
