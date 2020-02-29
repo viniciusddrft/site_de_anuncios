@@ -10,10 +10,16 @@ from .models import Anuncio
 def home(request):
     categorias = Categoria.objects.all()
 
-    ultimos_anuncios = Anuncio.objects.all()[:12]
+    ultimos_anuncios_ou_pesquisados = Anuncio.objects.all()[:12]
+
+    search = request.GET.get('search')
+    if search:
+        ultimos_anuncios_ou_pesquisados = Anuncio.objects.filter(titulo__icontains=search)#isso faz os ultimos anuncios receberem os resultados das pesquisas
+
+
 
     return render(request, 'home.html', {'categorias': categorias,
-                                        'anuncios':ultimos_anuncios})
+                                        'anuncios':ultimos_anuncios_ou_pesquisados})
 
 
 def categoria(request, categoria_id):
