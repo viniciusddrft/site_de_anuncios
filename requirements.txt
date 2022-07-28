@@ -1,6 +1,12 @@
 asgiref==3.2.3
+<<<<<<< HEAD
 Django==3.0.7
 Pillow==7.2.0
+=======
+Django==3.1.14
+Pillow==9.0.1
+pkg-resources==0.0.0
+>>>>>>> 15c1a768d7f5976f7ed56a5c7eaa0edbafc0b7ea
 pytz==2019.3
 sqlparse==0.3.0
 
