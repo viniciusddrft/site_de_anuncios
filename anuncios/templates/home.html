@@ -4,41 +4,40 @@
 
 {% block conteudo %}
 
-	
-			<div class="ui three column stackable grid">
-				{% for anuncio in anuncios %}	
-				<div class="column">
-					<a class="ui fluid card" href="{% url 'anuncio' anuncio.id %}">
-						<div class="ui fluid image">
-							{% if anuncio.imagem %}
-							<img src="{{anuncio.imagem.url}}">
-							{% else %}
-							<img src="{% static 'anuncios/img/image.png' %}">
-							{% endif %}
-					 	</div>
-					  	<div class="content">
-					   		<div class="header"> {{anuncio}} </div>
-							<div class="meta">
-								{{ anuncio.categoria }}
-							</div>
-					  	</div>
-					  	<div class="extra content">
-					     	R$ {{ anuncio.preco }}
-					  	</div>
-					</a>
+<div class="ui three column stackable grid">
+	{% for anuncio in anuncios %}
+	<div class="column">
+		<a class="ui fluid card" href="{% url 'anuncio' anuncio.id %}">
+			<div class="ui fluid image">
+				{% if anuncio.imagem %}
+				<img src="{{anuncio.imagem.url}}">
+				{% else %}
+				<img src="{% static 'anuncios/img/image.png' %}">
+				{% endif %}
+			</div>
+			<div class="content">
+				<div class="header"> {{anuncio}} </div>
+				<div class="meta">
+					{{ anuncio.categoria }}
 				</div>
-				{% empty %}
-					<div class="ui info fluid message">Nenhum anúncio encontrado!</div>
+			</div>
+			<div class="extra content">
+				R$ {{ anuncio.preco }}
+			</div>
+		</a>
+	</div>
+	{% empty %}
+	<div class="ui info fluid message">Nenhum anúncio encontrado!</div>
 
-					<div class="ui hidden divider"></div>
-					<div class="ui hidden divider"></div>
-					<div class="ui hidden divider"></div>
-					<div class="ui hidden divider"></div>
-					<div class="ui hidden divider"></div>
-					<div class="ui hidden divider"></div>
-					<div class="ui hidden divider"></div>
-					<div class="ui hidden divider"></div>
-				{% endfor %}
-			</div>	
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
+	{% endfor %}
+</div>
 
 {% endblock conteudo %}

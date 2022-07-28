@@ -2,90 +2,87 @@
 
 <!DOCTYPE HTML>
 <html>
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-    <title> SITE </title>
-    <link rel="stylesheet" href="{% static 'anuncios/css/semantic.min.css' %}">
-    <link rel="stylesheet" href="{% static 'anuncios/css/estilo.css' %}">
+	<title> SITE </title>
+	<link rel="stylesheet" href="{% static 'anuncios/css/semantic.min.css' %}">
+	<link rel="stylesheet" href="{% static 'anuncios/css/estilo.css' %}">
 </head>
 
 <body>
 
+	<div class="ui large inverted attached menu" id="menu">
+		<div class="ui container">
+			<a href="{% url 'home' %}" class="ui item">
+				<div class="header">
+					Site Anúncios
+				</div>
+			</a>
+			<div class="right menu">
+				<div class="ui right aligned category search item">
+					<div class="ui transparent icon input">
 
-<div class="ui large inverted attached menu" id="menu">
-	<div class="ui container">
-	    <a href="{% url 'home' %}" class="ui item">
-			<div class="header">
-				Site Anúncios
+						<form action="." method="GET">
+							<input class="prompt" name="search" type="text" placeholder="Pesquisar...">
+						</form>
+
+						<i class="search icon"></i>
+					</div>
+					<div class="results"></div>
+				</div>
 			</div>
-		</a>
-	    <div class="right menu">
-	    	<div class="ui right aligned category search item">
-	  			<div class="ui transparent icon input">
-
-					<form action="." method="GET">
-	  			    <input class="prompt" name="search" type="text" placeholder="Pesquisar...">
-					</form>
-
-	  			    <i class="search icon"></i>
-	  			</div>
-	  			  <div class="results"></div>
-	  		</div>
-	    </div>
+		</div>
 	</div>
-</div>
 
-<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
 
-
-<div class="ui container">
-	<div class="ui stackable grid">
-		<div class="four wide column">
-		<div class="ui dividing header">Categorias</div>
-		  	<div class="ui vertical fluid menu">
-			    {% for categoria in categorias %}
+	<div class="ui container">
+		<div class="ui stackable grid">
+			<div class="four wide column">
+				<div class="ui dividing header">Categorias</div>
+				<div class="ui vertical fluid menu">
+					{% for categoria in categorias %}
 					<a href="{% url 'categoria' categoria.id %}" class="item">
 						{{categoria}}
 					</a>
-				{% endfor%}
+					{% endfor%}
 
-			</div>
-		</div>
-
-	
-    <div class="twelve wide column">
-	{% if categoria %}
-	<h1 class="ui dividing header">{{ categoria }}</h1>
-	<br>
-	{% endif %}
-        {% block conteudo %}
-
-        {% endblock conteudo %}
-    </div>
-
-
-		
-	</div>
-</div>
-
-<div class="ui hidden divider"></div>
-<div class="ui hidden divider"></div>
-<div class="ui hidden divider"></div>
-<div class="ui hidden divider"></div>
-
-<footer class="ui inverted vertical segment">
-
-	<div class="ui hidden divider"></div>
-	<div class="ui container">
-		<div class="ui stackable inverted divided equal height stackable grid">
-			<div class="three wide column">
-				<h4 class="ui inverted header">Menu</h4>
-				<div class="ui inverted link list">
-					<a href="#" class="item">Anuncie</a>
-					<a href="#" class="item">Sitemap</a>
-					<a href="#" class="item">Contato</a>
 				</div>
 			</div>
+
+
+			<div class="twelve wide column">
+				{% if categoria %}
+				<h1 class="ui dividing header">{{ categoria }}</h1>
+				<br>
+				{% endif %}
+				{% block conteudo %}
+
+				{% endblock conteudo %}
+			</div>
+
+		</div>
+	</div>
+
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
+	<div class="ui hidden divider"></div>
+
+	<footer class="ui inverted vertical segment">
+
+		<div class="ui hidden divider"></div>
+		<div class="ui container">
+			<div class="ui stackable inverted divided equal height stackable grid">
+				<div class="three wide column">
+					<h4 class="ui inverted header">Menu</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">Anuncie</a>
+						<a href="#" class="item">Sitemap</a>
+						<a href="#" class="item">Contato</a>
+					</div>
+				</div>
 				<div class="three wide column">
 					<h4 class="ui inverted header">Caterias mais populares</h4>
 					<div class="ui inverted link list">
@@ -98,12 +95,13 @@
 					<h4 class="ui inverted header">Sobre</h4>
 					<p>Este é um site é um apenas um treino de desenvolvimentos web</p>
 				</div>
+			</div>
 		</div>
-	</div>
 		<div class="ui hidden divider"></div>
 
-	<script src="{% static 'anuncios/js/semantic.min.js' %}"> </script>
-</footer>
+		<script src="{% static 'anuncios/js/semantic.min.js' %}"> </script>
+	</footer>
 
 </body>
+
 </html>

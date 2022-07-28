@@ -3,10 +3,10 @@
 {% load static %}
 
 {% block conteudo %}
-		<h1 class="ui header">{{ anuncio }}
-		<div class="sub header">Anuncado em: {{ anuncio.criado_em }}</div>
-		<div class="sub header">Modificado em: {{ anuncio.alterado_em }}</div>
-		</h1>
+<h1 class="ui header">{{ anuncio }}
+	<div class="sub header">Anuncado em: {{ anuncio.criado_em }}</div>
+	<div class="sub header">Modificado em: {{ anuncio.alterado_em }}</div>
+</h1>
 
 <div class="ui grid">
 	<div class="ui sixteen wide column">
@@ -30,8 +30,4 @@
 	</div>
 </div>
 
-
-
-            
 {% endblock conteudo %}
-
